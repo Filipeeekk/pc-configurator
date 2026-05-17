@@ -2,13 +2,34 @@
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PC Configurator - Sestava</title>
-    <style>
-        
-    </style>
+    <title>PC Konfigurátor</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script src="app.js"></script>
+
+<header>
+    <h1>PC Konfigurátor</h1>
+    <button id="cart-button" onclick="toggleCart()">🛒 Košík (0 Kč)</button>
+</header>
+
+<div class="container" id="product-grid">
+    </div>
+
+<div id="cart-modal">
+    <h2>Váš nákupní košík</h2>
+    <div id="cart-items"></div>
+    <hr>
+    <h3 id="cart-total">Celkem: 0 Kč</h3>
+    <button onclick="toggleCart()" style="background: gray; color: white; border: none; padding: 10px; border-radius: 5px;">Zavřít</button>
+</div>
+
+<script src="app.js"></script>
+<script>
+    // Jednoduchá funkce pro otevírání/zavírání okna košíku
+    function toggleCart() {
+        const modal = document.getElementById('cart-modal');
+        modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+    }
+</script>
 </body>
 </html>
