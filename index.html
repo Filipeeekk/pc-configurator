@@ -1,11 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PC Konfigurátor</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script src="script.js"></script>
+
+<header>
+    <div class="top-row">
+        <h1>PC Konfigurátor</h1>
+        <button id="cart-button">🛒 Košík (0 Kč)</button>
+    </div>
+    <div id="filter-nav" class="filter-nav"></div>
+</header>
+
+<div class="container" id="product-grid"></div>
+
+<div id="cart-modal" style="display: none;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 15px;">
+        <h2>Váš košík</h2>
+        <button id="close-cart" style="background:gray; color:white; border:none; padding:6px 10px; border-radius:4px; cursor:pointer;">Zavřít</button>
+    </div>
+    <div id="cart-items"></div>
+    <hr>
+    <h3 id="cart-total">Celkem: 0 Kč</h3>
+    <div style="margin-top:10px; display:flex; justify-content:flex-end;">
+        <button id="order-button" type="button">Pokračovat v objednávce</button>
+    </div>
+</div>
+
+<div id="order-modal" style="display: none;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 15px;">
+        <h2>Dokončení objednávky</h2>
+        <button id="close-order" style="background:gray; color:white; border:none; padding:6px 10px; border-radius:4px; cursor:pointer;">Zavřít</button>
+    </div>
+    
+    <div id="order-form-container">
+        <div class="order-table-wrapper">
+            <table id="order-table"></table>
+        </div>
+        
+        <h3>Doručovací údaje</h3>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+            <input id="customer-name" placeholder="Jméno a příjmení" style="padding:8px;" />
+            <input id="customer-email" type="email" placeholder="Email" style="padding:8px;" />
+            <input id="customer-address" placeholder="Dodací adresa" style="padding:8px;" />
+        </div>
+        <div style="margin-top:15px; display:flex; gap:10px; justify-content:flex-end;">
+            <button id="submit-order" style="background:#0056b3; color:white; border:none; padding:10px 15px; border-radius:5px; cursor:pointer; font-weight:bold;">Odeslat objednávku</button>
+        </div>
+        <div id="order-confirmation" style="color:green; font-weight:bold; text-align:center;"></div>
+    </div>
+</div>
+
+<div id="modal-overlay" style="display: none;"></div>
+
+<script type="module" src="script.js"></script>
 </body>
 </html>
